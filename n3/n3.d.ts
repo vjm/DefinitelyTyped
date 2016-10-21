@@ -1,4 +1,4 @@
-// Type definitions for N3 v0.8.1 
+// Type definitions for N3 v0.8.1
 // Project: https://github.com/RubenVerborgh/N3.js
 // Definitions by: Fred Eisele <https://github.com/phreed>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
@@ -22,14 +22,14 @@ declare module "n3" {
         }
 
         interface Triple {
-            subject: string,
-            predicate: string,
-            object: string
+            subject: string;
+            predicate: string;
+            object: string;
         }
 
         interface BlankTriple {
-            predicate: string,
-            object: string
+            predicate: string;
+            object: string;
         }
 
         // class Parser {
@@ -42,8 +42,8 @@ declare module "n3" {
         function StreamParser(options?: ParserOptions): N3StreamParser;
 
         interface ParserOptions {
-            format?: string,
-            prefixes?: string[]
+            format?: string;
+            prefixes?: string[];
         }
 
         interface ParseCallback {
@@ -89,8 +89,8 @@ declare module "n3" {
         }
 
         interface WriterOptions {
-            format?: string,
-            prefixes?: Prefixes
+            format?: string;
+            prefixes?: Prefixes;
         }
 
         interface N3StoreWriter extends N3Writer {

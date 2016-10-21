@@ -2244,7 +2244,7 @@ declare namespace __Highcharts {
         formAttributes?: any;
         /**
          * Path where Highcharts will look for export module dependencies to load on demand if they don't already exist on
-         * window. Should currently point to location of CanVG library (https://github.com/canvg/canvg) and RGBColor.js, 
+         * window. Should currently point to location of CanVG library (https://github.com/canvg/canvg) and RGBColor.js,
          * required for client side export in certain browsers.
          * @default 'http://code.highcharts.com/{version}/lib'
          * @since 5.0.0
@@ -2989,7 +2989,7 @@ declare namespace __Highcharts {
          */
         padding?: number;
         /**
-         * Whether to reserve space for the labels. This can be turned off when for example the labels are rendered inside 
+         * Whether to reserve space for the labels. This can be turned off when for example the labels are rendered inside
          * the plot area instead of outside.
          * @default true
          * @since 4.1.10
