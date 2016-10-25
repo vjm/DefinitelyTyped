@@ -49,7 +49,7 @@ declare namespace angular.google.analytics {
          * @param {Object} tracker The account identifier(s).
          * @return {angular.google.analytics.IAnalyticsProvider} The object instance.
          */
-        setAccount(tracker: string|Object|Array<Object>): AnalyticsProvider;
+        setAccount(tracker: string|Object|Object[]): AnalyticsProvider;
 
         /**
          * @summary Set Cookie Configuration.

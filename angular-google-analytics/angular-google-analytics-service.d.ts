@@ -9,13 +9,13 @@ declare namespace angular.google.analytics {
      * @summary If logging is enabled then all outbound calls are accessible via an in-memory array.
      * This is useful for troubleshooting and seeing the order of outbound calls with parameters.
      */
-    log: Array<Object>;
+    log: Object[];
 
     /**
      * @summary If in offline mode then all calls are queued to an in-memory array for future processing.
      * All calls queued to the offlineQueue are not outbound calls yet and hence do not show up in the log.
      */
-    offlineQueue: Array<Object>;
+    offlineQueue: Object[];
 
     /**
      * @summary Returns the current URL that would be sent if a `trackPage` call was made.

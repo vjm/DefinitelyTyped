@@ -301,7 +301,7 @@ declare namespace c3 {
         /**
          * Set groups for the data for stacking.
          */
-        groups?: Array<string[]>;
+        groups?: string[][];
         /**
          * Set y axis the data related to. y and y2 can be used.
          */
@@ -888,7 +888,7 @@ declare namespace c3 {
          * Update groups for the targets.
          * @param groups This argument needs to be an Array that includes one or more Array that includes target ids to be grouped.
          */
-        groups(groups: Array<string[]>): void;
+        groups(groups: string[][]): void;
 
         xgrids: GridOperations;
 

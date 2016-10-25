@@ -5678,8 +5678,13 @@ declare module "react" {
      */
     export interface SwipeableListViewDataSource {
         cloneWithRowsAndSections(dataBlob: any,
+<<<<<<< 0f65e02597f1e5961427efda15a212e14156bb8b
                                  sectionIdentities?: string[],
                                  rowIdentities?: string[][]): SwipeableListViewDataSource
+=======
+            sectionIdentities: string[],
+            rowIdentities: string[][]): SwipeableListViewDataSource;
+>>>>>>> WIP
         getDataSource(): ListViewDataSource;
         getOpenRowID(): string;
         getFirstRowID(): string;
