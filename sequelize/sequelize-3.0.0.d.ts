@@ -1795,7 +1795,7 @@ declare namespace sequelize {
          * Accepts subtype any of the DataTypes
          * Array of required attributes that are available on the model
          */
-        new (subtype: DataTypeAbstract, requireAttributes?: Array<string>): DataTypeVirtual;
+        new (subtype: DataTypeAbstract, requireAttributes?: string[]): DataTypeVirtual;
     }
 
     interface DataTypeEnum extends DataTypeAbstract {
@@ -3154,7 +3154,7 @@ declare namespace sequelize {
          * `Sequelize.literal`, `Sequelize.fn` and so on), and the second is the name you want the attribute to
          * have in the returned instance
          */
-        attributes?: FindOptionsAttriburesArray | { include?: FindOptionsAttriburesArray, exclude?: Array<string> };
+        attributes?: FindOptionsAttriburesArray | { include?: FindOptionsAttriburesArray, exclude?: string[] };
 
         /**
          * If true, only non-deleted records will be returned. If false, both deleted and non-deleted records will

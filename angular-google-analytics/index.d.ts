@@ -61,10 +61,10 @@ declare namespace angular.google.analytics {
 
         /**
          * @summary Set cross-linked domains.
-         * @param {Array<string>} domains The domains.
+         * @param {string[]} domains The domains.
          * @return {angular.google.analytics.IAnalyticsProvider} The object instance.
          */
-        setCrossLinkDomains(domains: Array<string>): AnalyticsProvider;
+        setCrossLinkDomains(domains: string[]): AnalyticsProvider;
 
         /**
          * @summary Set currency.

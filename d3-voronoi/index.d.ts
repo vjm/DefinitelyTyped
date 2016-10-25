@@ -13,7 +13,7 @@
  * for x and y coordinates. However, it is used as a base for interface definitions, and [number, number]
  * cannot be extended.
  */
-export interface VoronoiPoint extends Array<number> {
+export interface VoronoiPoint extends number[] {
     0: number;
     1: number;
 }
@@ -41,7 +41,7 @@ export interface VoronoiSite<T> extends VoronoiPoint {
 
 export interface VoronoiCell<T> {
     site: VoronoiSite<T>;
-    halfEdges: Array<number>;
+    halfEdges: number[];
 }
 
 

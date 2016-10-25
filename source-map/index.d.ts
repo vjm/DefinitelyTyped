@@ -14,8 +14,8 @@ declare namespace SourceMap {
 
     interface RawSourceMap extends StartOfSourceMap {
         version: string;
-        sources: Array<string>;
-        names: Array<string>;
+        sources: string[];
+        names: string[];
         sourcesContent?: string[];
         mappings: string;
     }
