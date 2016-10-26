@@ -56,7 +56,7 @@ declare namespace sequelize {
          * @param fn The function you want to call.
          * @param args All further arguments will be passed as arguments to the function.
          */
-        fn(fn: string, ...args: Array<any>): any;
+        fn(fn: string, ...args: any[]): any;
 
         /**
          * Creates a object representing a column in the DB. This is often useful in conjunction with sequelize.fn, since
@@ -86,14 +86,14 @@ declare namespace sequelize {
          *
          * @param args Each argument (string or object) will be joined by AND.
          */
-        and(...args: Array<any>): And;
+        and(...args: any[]): And;
 
         /**
          * An OR query.
          *
          * @param args Each argument (string or object) will be joined by OR.
          */
-        or(...args: Array<any>): Or;
+        or(...args: any[]): Or;
 
         /**
          * A way of specifying attr = condition. Mostly used internally.
@@ -741,14 +741,14 @@ declare namespace sequelize {
          *
          * @param hooktype
          */
-        addHook(hooktype: string, name: string, fn: (...args: Array<any>) => void): boolean;
+        addHook(hooktype: string, name: string, fn: (...args: any[]) => void): boolean;
 
         /**
          * Add a hook to the model.
          *
          * @param hooktype
          */
-        addHook(hooktype: string, fn: (...args: Array<any>) => void): boolean;
+        addHook(hooktype: string, fn: (...args: any[]) => void): boolean;
 
         /**
          * A named hook that is run before validation.
@@ -1028,7 +1028,7 @@ declare namespace sequelize {
         removeColumn(tableName: string, attributeName: string): EventEmitter;
         changeColumn(tableName: string, attributeName: string, dataTypeOrOptions: any): EventEmitter;
         renameColumn(tableName: string, attrNameBefore: string, attrNameAfter: string): EventEmitter;
-        addIndex(tableName: string, attributes: Array<any>, options?: QueryOptions): EventEmitter;
+        addIndex(tableName: string, attributes: any[], options?: QueryOptions): EventEmitter;
         showIndex(tableName: string, options?: QueryOptions): EventEmitter;
         getForeignKeysForTables(tableNames: string[]): EventEmitter;
         removeIndex(tableName: string, attributes: string[]): EventEmitter;
@@ -1041,15 +1041,15 @@ declare namespace sequelize {
          * @param options       Query options
          * @param attributes    For Postgres only, used to identify if an attribute is auto-increment and thus handled specially.
          */
-        bulkInsert(tableName: string, records: Array<any>, options?: QueryOptions, attributes?: any): EventEmitter;
+        bulkInsert(tableName: string, records: any[], options?: QueryOptions, attributes?: any): EventEmitter;
 
-        update<TModel>(dao: TModel, tableName: string, values: Array<any>, where: any, options?: QueryOptions): EventEmitter;
-        bulkUpdate(tableName: string, values: Array<any>, where: any, options?: QueryOptions, attributes?: any): EventEmitter;
+        update<TModel>(dao: TModel, tableName: string, values: any[], where: any, options?: QueryOptions): EventEmitter;
+        bulkUpdate(tableName: string, values: any[], where: any, options?: QueryOptions, attributes?: any): EventEmitter;
         delete<TModel>(dao: TModel, tableName: string, where: any, options?: QueryOptions): EventEmitter;
         bulkDelete(tableName: string, where: any, options?: QueryOptions): EventEmitter;
         bulkDelete<TModel>(tableName: string, where: any, options: QueryOptions, model: TModel): EventEmitter;
         select<TModel>(factory: TModel, tableName: string, scope?: any, queryOptions?: QueryOptions): EventEmitter;
-        increment<TModel>(dao: TModel, tableName: string, values: Array<any>, where: any, options?: QueryOptions): EventEmitter;
+        increment<TModel>(dao: TModel, tableName: string, values: any[], where: any, options?: QueryOptions): EventEmitter;
         rawSelect<TModel>(tableName: string, options: QueryOptions, attributeSelector: string, model: TModel): EventEmitter;
         /**
          * Postgres only. Creates a trigger on specified table to call the specified function with supplied parameters.
@@ -1062,7 +1062,7 @@ declare namespace sequelize {
          * @param functionParams
          * @param optionsArray
          */
-        createTrigger(tableName: string, triggerName: string, timingType: string, fireOnArray: Array<any>, functionName: string, functionParams: Array<any>, optionsArray: string[]): EventEmitter;
+        createTrigger(tableName: string, triggerName: string, timingType: string, fireOnArray: any[], functionName: string, functionParams: any[], optionsArray: string[]): EventEmitter;
         /**
          * Postgres only. Drops the specified trigger.
          *
@@ -1071,9 +1071,9 @@ declare namespace sequelize {
          */
         dropTrigger(tableName: string, triggerName: string): EventEmitter;
         renameTrigger(tableName: string, oldTriggerName: string, newTriggerName: string): EventEmitter;
-        createFunction(functionName: string, params: Array<any>, returnType: string, language: string, body: string, options?: QueryOptions): EventEmitter;
-        dropFunction(functionName: string, params: Array<any>): EventEmitter;
-        renameFunction(oldFunctionName: string, params: Array<any>, newFunctionName: string): EventEmitter;
+        createFunction(functionName: string, params: any[], returnType: string, language: string, body: string, options?: QueryOptions): EventEmitter;
+        dropFunction(functionName: string, params: any[]): EventEmitter;
+        renameFunction(oldFunctionName: string, params: any[], newFunctionName: string): EventEmitter;
         /**
          * Escape an identifier (e.g. a table or attribute name). If force is true,
          * the identifier will be quoted even if the `quoteIdentifiers` option is
@@ -1095,7 +1095,7 @@ declare namespace sequelize {
         dropSchema(schemaName: string): string;
         showSchemasQuery(): string;
         addSchema<TInstance, TPojo>(param: Model<TInstance, TPojo>): Schema;
-        createTableQuery(tableName: string, attributes: Array<any>, options?: CreateTableQueryOptions): string;
+        createTableQuery(tableName: string, attributes: any[], options?: CreateTableQueryOptions): string;
         describeTableQuery(tableName: string, schema: string, schemaDelimiter: string): string;
         dropTableQuery(tableName: string, options?: { cascade: string }): string;
         renameTableQuery(before: string, after: string): string;
@@ -1118,7 +1118,7 @@ declare namespace sequelize {
          * @param options
          */
         incrementQuery(tableName: string, attrValueHash: any, where: any, options?: any): string;
-        addIndexQuery(tableName: string, attributes: Array<any>, options?: IndexOptions): string;
+        addIndexQuery(tableName: string, attributes: any[], options?: IndexOptions): string;
         /**
          * Return indices for a table. Not options may be passed but is not used, so can be anything.
          * @param tableName
@@ -1127,7 +1127,7 @@ declare namespace sequelize {
         showIndexQuery(tableName: string, options?: any): string; // options is actually not used
         removeIndexQuery(tableName: string, indexNameOrAttributes: string): string;
         removeIndexQuery(tableName: string, indexNameOrAttributes: string[]): string;
-        attributesToSQL(attributes: Array<any>): string;
+        attributesToSQL(attributes: any[]): string;
         findAutoIncrementField<TInstance, TPojo>(factory: Model<TInstance, TPojo>): string[];
         quoteTable(param: any, as: boolean): string;
         quote(obj: any, parent: any, force: boolean): string;
@@ -1735,7 +1735,7 @@ declare namespace sequelize {
          * with the following attributes: attribute (field name), length (create a prefix index of length chars), order (the
          * direction the column should be sorted in), collate (the collation (sort order) for the column)
          */
-        fields: Array<any>;
+        fields: any[];
     }
 
     interface QueryOptions {
@@ -1844,7 +1844,7 @@ declare namespace sequelize {
          * Sequelize.literal, Sequelize.fn and so on), and the second is the name you want the attribute to have in the
          * returned instance
          */
-        attributes?: Array<any>;
+        attributes?: any[];
 
         /**
          * A list of associations to eagerly load. Supported is either { include?: [ Model1, Model2, ...] } or { include?:
@@ -1887,7 +1887,7 @@ declare namespace sequelize {
         /**
          * an array of include options - Used to build prefetched/included model instances. See set.
          */
-        include?: Array<any>;
+        include?: any[];
     }
 
     interface CopyOptions extends BuildOptions {
@@ -2104,13 +2104,13 @@ declare namespace sequelize {
     interface SelectOptions {
         limit?: number;
         offset?: number;
-        attributes?: Array<any>;
+        attributes?: any[];
         hasIncludeWhere?: boolean;
         hasIncludeRequired?: boolean;
         hasMultiAssociation?: boolean;
         tableAs?: string;
         table?: string;
-        include?: Array<any>;
+        include?: any[];
         includeIgnoreAttributes?: boolean;
         where?: any;
         /**
@@ -2184,14 +2184,14 @@ declare namespace sequelize {
         /**
          * Each argument (string or object) will be joined by AND.
          */
-        args: Array<any>;
+        args: any[];
     }
 
     interface Or {
         /**
          * Each argument (string or object) will be joined by OR.
          */
-        args: Array<any>;
+        args: any[];
     }
 
     interface Where {
@@ -2227,7 +2227,7 @@ declare namespace sequelize {
 
     interface CreateTableQueryOptions {
         comment?: string;
-        uniqueKeys?: Array<any>;
+        uniqueKeys?: any[];
         charset?: string;
     }
 
@@ -2263,7 +2263,7 @@ declare namespace sequelize {
          * @param type  The type of event.
          * @param value All other arguments will be passed to the event listeners.
          */
-        emit(type: string, ...value: Array<any>): void;
+        emit(type: string, ...value: any[]): void;
 
         /**
          * Listen for success events.
@@ -2395,7 +2395,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread(onFulfilled?: (...results: Array<any>) => Promise, onRejected?: (...results: Array<any>) => Promise): Promise;
+        spread(onFulfilled?: (...results: any[]) => Promise, onRejected?: (...results: any[]) => Promise): Promise;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2404,7 +2404,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread(onFulfilled?: (...results: Array<any>) => void, onRejected?: (...results: Array<any>) => void): Promise;
+        spread(onFulfilled?: (...results: any[]) => void, onRejected?: (...results: any[]) => void): Promise;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2413,7 +2413,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread(onFulfilled?: (...results: Array<any>) => Promise, onRejected?: (...results: Array<any>) => void): Promise;
+        spread(onFulfilled?: (...results: any[]) => Promise, onRejected?: (...results: any[]) => void): Promise;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2422,7 +2422,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread(onFulfilled?: (...results: Array<any>) => void, onRejected?: (...results: Array<any>) => Promise): Promise;
+        spread(onFulfilled?: (...results: any[]) => void, onRejected?: (...results: any[]) => Promise): Promise;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2431,7 +2431,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread<R>(onFulfilled?: (...results: Array<any>) => PromiseT<R>, onRejected?: (...results: Array<any>) => PromiseT<R>): PromiseT<R>;
+        spread<R>(onFulfilled?: (...results: any[]) => PromiseT<R>, onRejected?: (...results: any[]) => PromiseT<R>): PromiseT<R>;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2440,7 +2440,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread<R>(onFulfilled?: (...results: Array<any>) => void, onRejected?: (...results: Array<any>) => PromiseT<R>): PromiseT<R>;
+        spread<R>(onFulfilled?: (...results: any[]) => void, onRejected?: (...results: any[]) => PromiseT<R>): PromiseT<R>;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2449,7 +2449,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread<R>(onFulfilled?: (...results: Array<any>) => PromiseT<R>, onRejected?: (...results: Array<any>) => void): PromiseT<R>;
+        spread<R>(onFulfilled?: (...results: any[]) => PromiseT<R>, onRejected?: (...results: any[]) => void): PromiseT<R>;
 
         /**
          * Attach listeners to the emitter, promise style. This listener will recieve all arguments emitted by the emitter,
@@ -2458,7 +2458,7 @@ declare namespace sequelize {
          * @param onFulfilled       The function to call if the promise is fulfilled (if the emitter emits success).
          * @param onRejected
          */
-        spread<R1, R2>(onFulfilled?: (...results: Array<any>) => PromiseT<R1>, onRejected?: (...results: Array<any>) => PromiseT<R2>): Promise;
+        spread<R1, R2>(onFulfilled?: (...results: any[]) => PromiseT<R1>, onRejected?: (...results: any[]) => PromiseT<R2>): Promise;
 
         /**
          * Shorthand for then(null, onRejected)
@@ -2618,7 +2618,7 @@ declare namespace sequelize {
          * @param arr       Array where first element is string with placeholders and remaining attributes are values to replace placeholders.
          * @param dialect   SQL Dialect.
          */
-        format(arr: Array<any>, dialect?: string): string;
+        format(arr: any[], dialect?: string): string;
 
         /**
          * Formats a SQL string replacing named placeholders with values from the parameters object with matching key names.
@@ -2633,7 +2633,7 @@ declare namespace sequelize {
 
         smartWhere(whereArg: any, dialect: string): any;
 
-        compileSmartWhere(obj: any, dialect: string): Array<any>;
+        compileSmartWhere(obj: any, dialect: string): any[];
 
         getWhereLogic(logic: string, val?: any): string;
 
@@ -2641,7 +2641,7 @@ declare namespace sequelize {
 
         hasChanged(attrValue: any, value: any): boolean;
 
-        argsArePrimaryKeys(args: Array<any>, primaryKeys: any): boolean;
+        argsArePrimaryKeys(args: any[], primaryKeys: any): boolean;
 
         /**
          * Consistently combines two table names such that the alphabetically first name always comes first when combined.

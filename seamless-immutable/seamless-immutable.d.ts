@@ -46,8 +46,8 @@ declare namespace SeamlessImmutable {
   export interface ImmutableArray<T> {
     asMutable(): Array<T>;
     asMutable(opts: AsMutableOptions): Array<T>;
-    asObject(toKeyValue: (item: T) => Array<any>): ImmutableObject<T>;
-    flatMap(mapFunction: (item: T) => Array<any>): ImmutableArray<any>;
+    asObject(toKeyValue: (item: T) => any[]): ImmutableObject<T>;
+    flatMap(mapFunction: (item: T) => any[]): ImmutableArray<any>;
   }
 
   // an immutable object is both of Type T (i.e., looks like a normal T) and of type Immutable<T>

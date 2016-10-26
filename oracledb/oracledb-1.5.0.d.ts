@@ -91,7 +91,7 @@ declare module 'oracledb' {
 		/** When the statement has out parameters, it comes here. */
 		outBinds?: any[] | Object;
 		/** Metadata information - just columns names for now. */
-		metaData?: Array<IMetaData>;
+		metaData?: IMetaData[];
 		/** When not using ResultSet, query results comes here. */
 		rows?: any[][] | any[];
 		/** When using ResultSet, query results comes here. */
@@ -105,7 +105,7 @@ declare module 'oracledb' {
 
 	export interface IResultSet {
 		/** Metadata information - just columns names for now. */
-		metaData?: Array<IMetaData>;
+		metaData?: IMetaData[];
 		/**
 		 * Closes the ResultSet.
 		 * @param  {(err:any) => void} callback Callback called on finish or when some error occurs
@@ -122,11 +122,11 @@ declare module 'oracledb' {
 		/**
 		 * Fetch some rows from ResultSet.
 		 * @param  {number} rowCount Number of rows to be fetched.
-		 * @param  {(err:any,rows:Array<Array<any>>|Object[]) => void} callback Callback called when the rows are available, or when some error occurs.
+		 * @param  {(err:any,rows:any[][]|Object[]) => void} callback Callback called when the rows are available, or when some error occurs.
 		 * @returns void
 		 * @remarks When the number of rows passed to the callback is less than the rowCount, no more rows are available to be fetched.
 		 */
-		getRows(rowCount: number, callback: (err: any, rows: Array<Array<any>> | Object[]) => void): void;
+		getRows(rowCount: number, callback: (err: any, rows: any[][] | Object[]) => void): void;
 	}
 
 	export interface IConnection {
@@ -144,7 +144,7 @@ declare module 'oracledb' {
 		/**
 		 * Execute method on Connection class.
 		 * @param	{string} sql SQL Statement.
-		 * @param	{Object|Array<any>} Binds Binds Object/Array
+		 * @param	{Object|any[]} Binds Binds Object/Array
 		 * @param	{IExecuteOptions} options Options object
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
@@ -156,7 +156,7 @@ declare module 'oracledb' {
 		/**
 		 * Execute method on Connection class.
 		 * @param	{string} sql SQL Statement.
-		 * @param	{Object|Array<any>} Binds Binds Object/Array
+		 * @param	{Object|any[]} Binds Binds Object/Array
 		 * @param	{(err: any, value: IExecuteReturn) => void} callback Callback function to receive the result.
 		 */
 		execute(sql: string,
@@ -293,7 +293,7 @@ declare module 'oracledb' {
 	export var autoCommit: boolean;
 	/** Default maximum number of rows to be fetched in statements not using ResultSets */
 	export var maxRows: number;
-	/** Default format for returning rows. When ARRAY, it will return Array<Array<any>>. When OBJECT, it will return Object[]. */
+	/** Default format for returning rows. When ARRAY, it will return any[][]. When OBJECT, it will return Object[]. */
 	export var outFormat: number;
 	/** node-oracledb driver version. */
 	export var version: number;

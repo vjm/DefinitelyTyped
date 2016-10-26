@@ -3560,7 +3560,7 @@ declare namespace  __React {
          * handle merging of old and new data separately and then pass that into
          * this function as the `dataBlob`.
          */
-        cloneWithRows<T>( dataBlob: Array<any> | {[key: string ]: any}, rowIdentities?: Array<string | number> ): ListViewDataSource
+        cloneWithRows<T>( dataBlob: any[] | {[key: string ]: any}, rowIdentities?: Array<string | number> ): ListViewDataSource
 
         /**
          * This performs the same function as the `cloneWithRows` function but here
@@ -3573,7 +3573,7 @@ declare namespace  __React {
          *
          * Note: this returns a new object!
          */
-        cloneWithRowsAndSections( dataBlob: Array<any> | {[key: string]: any}, sectionIdentities?: Array<string | number>, rowIdentities?: Array<Array<string | number>> ): ListViewDataSource
+        cloneWithRowsAndSections( dataBlob: any[] | {[key: string]: any}, sectionIdentities?: Array<string | number>, rowIdentities?: Array<Array<string | number>> ): ListViewDataSource
 
         getRowCount(): number
 
